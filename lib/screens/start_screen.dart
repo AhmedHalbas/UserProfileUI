@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
+import 'package:user_profile_app_ui/screens/login_screen.dart';
 import 'package:user_profile_app_ui/utils/constants.dart';
 
-class StartScreen extends StatefulWidget {
-  @override
-  _StartScreenState createState() => _StartScreenState();
-}
+class StartScreen extends StatelessWidget {
+  static String id = 'StartScreen';
 
-class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     double scrWidth = MediaQuery.of(context).size.width;
@@ -31,15 +30,8 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
               ),
-              Positioned(
-                height: scrHeight * 0.5,
-                bottom: 0,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: scrWidth,
-                  decoration: boxDecoration(Colors.white),
-                  padding: EdgeInsets.all(scrHeight * 0.02),
-                  child: Column(
+              CustomBody(
+                  widget: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -60,7 +52,9 @@ class _StartScreenState extends State<StartScreen> {
                           color: Colors.white,
                           textColor: kButtonPrimaryColor,
                           title: 'Login',
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.pushNamed(context, LoginScreen.id);
+                          }),
                       CustomButton(
                           color: kButtonPrimaryColor,
                           textColor: Colors.white,
@@ -68,21 +62,11 @@ class _StartScreenState extends State<StartScreen> {
                           onPressed: () {})
                     ],
                   ),
-                ),
-              )
+                  height: scrHeight * 0.5)
             ],
           ),
         ),
       ),
     );
-  }
-
-  BoxDecoration boxDecoration(color) {
-    return BoxDecoration(
-        color: color,
-        borderRadius: new BorderRadius.only(
-          topLeft: const Radius.circular(40.0),
-          topRight: const Radius.circular(40.0),
-        ));
   }
 }

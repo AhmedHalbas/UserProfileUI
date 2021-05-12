@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_profile_app_ui/screens/login_screen.dart';
 import 'package:user_profile_app_ui/screens/start_screen.dart';
 
 void main() => runApp(MyApp());
@@ -12,6 +13,11 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
       ),
       home: StartScreen(),
+      initialRoute: StartScreen.id,
+      routes: {
+        StartScreen.id: (context) => StartScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
