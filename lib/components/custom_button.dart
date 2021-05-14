@@ -10,14 +10,13 @@ class CustomButton extends StatelessWidget {
       {@required this.color,
       @required this.textColor,
       @required this.title,
-      @required this.onPressed});
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 40),
       child: Material(
-        elevation: 5.0,
         color: color,
         borderRadius: BorderRadius.circular(10.0),
         child: MaterialButton(

@@ -5,21 +5,19 @@ import 'package:user_profile_app_ui/components/custom_header.dart';
 import 'package:user_profile_app_ui/components/custom_text_field.dart';
 import 'package:user_profile_app_ui/utils/constants.dart';
 
-class LoginScreen extends StatelessWidget {
-  static String id = 'LoginScreen';
-
+class RegisterScreen extends StatelessWidget {
+  static String id = 'RegisterScreen';
   @override
   Widget build(BuildContext context) {
     double scrWidth = MediaQuery.of(context).size.width;
     double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(
             children: [
               CustomHeader(
-                title: 'Login to your account',
+                title: 'Register new account',
                 height: scrHeight,
               ),
               CustomBody(
@@ -28,24 +26,44 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      CustomTextField(
+                        hint: 'Please enter your Full Name',
+                      ),
                       CustomTextField(hint: 'Please enter your Email'),
                       CustomTextField(
                           hint: 'Please enter your Password', isObscured: true),
-                      Container(
-                        margin: EdgeInsets.only(right: 20, top: 10),
-                        width: scrWidth,
-                        child: Text(
-                          'forget Password?',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                              color: kButtonPrimaryColor,
-                              fontWeight: FontWeight.bold),
+                      CustomTextField(
+                          hint: 'Please re-enter your Password',
+                          isObscured: true),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: scrWidth * 0.15),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: CustomButton(
+                                color: kPrimaryColor,
+                                textColor: Colors.white,
+                                title: 'Male',
+                              ),
+                            ),
+                            SizedBox(
+                              width: scrWidth * 0.05,
+                            ),
+                            Expanded(
+                              child: CustomButton(
+                                color: kButtonPrimaryColor,
+                                textColor: Colors.white,
+                                title: 'Female',
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       CustomButton(
                           color: kButtonPrimaryColor,
                           textColor: Colors.white,
-                          title: 'Login',
+                          title: 'Register',
                           onPressed: () {})
                     ],
                   ),

@@ -5,7 +5,7 @@ class CustomTextField extends StatelessWidget {
   final String hint;
   final bool isObscured;
 
-  CustomTextField({@required this.hint, @required this.isObscured});
+  CustomTextField({@required this.hint, this.isObscured = false});
 
   @override
   Widget build(BuildContext context) {
