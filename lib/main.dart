@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_profile_app_ui/screens/change_password_screen.dart';
 import 'package:user_profile_app_ui/screens/login_screen.dart';
 import 'package:user_profile_app_ui/screens/register_screen.dart';
 import 'package:user_profile_app_ui/screens/reset_password_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         RegisterScreen.id: (context) => RegisterScreen(),
         ResetPasswordScreen.id: (context) => ResetPasswordScreen(),
         VerificationScreen.id: (context) => VerificationScreen(),
+        ChangePasswordScreen.id: (context) => ChangePasswordScreen(),
       },
       debugShowCheckedModeBanner: false,
     );
