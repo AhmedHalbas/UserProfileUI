@@ -3,24 +3,22 @@ import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/components/custom_header.dart';
 import 'package:user_profile_app_ui/components/custom_text_field.dart';
-import 'package:user_profile_app_ui/screens/reset_password_screen.dart';
+import 'package:user_profile_app_ui/screens/verification_screen.dart';
 import 'package:user_profile_app_ui/utils/constants.dart';
 
-class LoginScreen extends StatelessWidget {
-  static String id = 'LoginScreen';
-
+class ResetPasswordScreen extends StatelessWidget {
+  static String id = 'ResetPasswordScreen';
   @override
   Widget build(BuildContext context) {
     double scrWidth = MediaQuery.of(context).size.width;
     double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(
             children: [
               CustomHeader(
-                title: 'Login to your account',
+                title: 'Reset your password',
                 height: scrHeight,
               ),
               CustomBody(
@@ -29,31 +27,25 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      CustomTextField(hint: 'Please enter your Email'),
-                      CustomTextField(
-                          hint: 'Please enter your Password', isObscured: true),
-                      Container(
-                        margin: EdgeInsets.only(right: 20, top: 10),
-                        width: scrWidth,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, ResetPasswordScreen.id);
-                          },
-                          child: Text(
-                            'forget Password?',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                color: kButtonPrimaryColor,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
+                      Image.asset(
+                        "assets/images/ic_intro_image.png",
+                        height: scrHeight * 0.4,
                       ),
+                      Text(
+                        'Reset Password',
+                        style: TextStyle(
+                            fontSize: scrWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff181461)),
+                      ),
+                      CustomTextField(hint: 'Please enter your Email'),
                       CustomButton(
                           color: kButtonPrimaryColor,
                           textColor: Colors.white,
-                          title: 'Login',
-                          onPressed: () {})
+                          title: 'Reset password',
+                          onPressed: () {
+                            Navigator.pushNamed(context, VerificationScreen.id);
+                          })
                     ],
                   ),
                 ),
