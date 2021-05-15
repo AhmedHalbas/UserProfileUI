@@ -23,9 +23,12 @@ class CustomButton extends StatelessWidget {
           onPressed: onPressed,
           minWidth: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.06,
-          child: Text(
-            title,
-            style: TextStyle(color: textColor, fontSize: 25),
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              title,
+              style: TextStyle(color: textColor, fontSize: 25),
+            ),
           ),
         ),
       ),
