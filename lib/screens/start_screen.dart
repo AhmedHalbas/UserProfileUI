@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/screens/login_screen.dart';
@@ -10,24 +11,21 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            height: scrHeight,
+            height: 100.0.h,
             child: Stack(
               children: [
                 Container(
-                  width: scrWidth,
-                  decoration: boxDecoration(kPrimaryColor),
+                  width: 100.0.w,
+                  color: kPrimaryColor,
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: scrHeight * 0.1),
+                    padding: EdgeInsets.only(bottom: 10.0.h),
                     child: Image.asset(
                       "assets/images/ic_intro_image.png",
-                      height: scrHeight * 0.4,
+                      height: 40.0.h,
                     ),
                   ),
                 ),
@@ -38,26 +36,26 @@ class StartScreen extends StatelessWidget {
                         Text(
                           'Welcome To Our App!',
                           style: TextStyle(
-                            fontSize: scrWidth * 0.04,
+                            fontSize: 16.0.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         SizedBox(
-                          height: scrHeight * 0.02,
+                          height: 2.0.h,
                         ),
                         Text(
                           'This is the first version of user profile app. \n Please sign in or create an account below.',
-                          style: TextStyle(fontSize: scrWidth * 0.03),
+                          style: TextStyle(fontSize: 13.0.sp),
                         ),
                         CustomButton(
-                            color: Colors.white,
-                            textColor: kButtonPrimaryColor,
+                            color: kButtonPrimaryColor,
+                            textColor: Colors.white,
                             title: 'Login',
                             onPressed: () {
                               Navigator.pushNamed(context, LoginScreen.id);
                             }),
                         CustomButton(
-                            color: kButtonPrimaryColor,
+                            color: kPrimaryColor,
                             textColor: Colors.white,
                             title: 'Create an Account',
                             onPressed: () {
@@ -65,7 +63,7 @@ class StartScreen extends StatelessWidget {
                             })
                       ],
                     ),
-                    height: scrHeight * 0.5)
+                    height: 50.0.h)
               ],
             ),
           ),

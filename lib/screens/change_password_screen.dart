@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/components/custom_header.dart';
@@ -10,8 +11,6 @@ class ChangePasswordScreen extends StatelessWidget {
   static String id = 'ChangePasswordScreen';
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -20,10 +19,10 @@ class ChangePasswordScreen extends StatelessWidget {
             children: [
               CustomHeader(
                 title: 'Change Password',
-                height: scrHeight,
+                height: 100.0.h,
               ),
               CustomBody(
-                height: scrHeight * 0.75,
+                height: 75.0.h,
                 widget: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,

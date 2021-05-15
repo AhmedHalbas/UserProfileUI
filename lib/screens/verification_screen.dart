@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
@@ -10,8 +11,6 @@ class VerificationScreen extends StatelessWidget {
   static String id = 'VerificationScreen';
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,32 +18,33 @@ class VerificationScreen extends StatelessWidget {
             children: [
               CustomHeader(
                 title: 'Confirmation Code',
-                height: scrHeight,
+                height: 100.0.h,
               ),
               CustomBody(
-                height: scrHeight * 0.75,
+                height: 75.0.h,
                 widget: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset(
                         "assets/images/ic_intro_image.png",
-                        height: scrHeight * 0.4,
+                        height: 40.0.h,
                       ),
                       Text(
                         'Verification',
                         style: TextStyle(
-                            fontSize: scrWidth * 0.04,
+                            fontSize: 16.0.sp,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff181461)),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 60),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 12.0.w, vertical: 1.0.h),
                         child: PinFieldAutoFill(codeLength: 4),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.only(left: 20, right: 20, top: 20),
+                        padding: EdgeInsets.only(
+                            left: 3.0.w, right: 3.0.w, top: 2.0.h),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -68,7 +68,8 @@ class VerificationScreen extends StatelessWidget {
                           textColor: Colors.white,
                           title: 'Continue',
                           onPressed: () {
-                            Navigator.pushNamed(context, ChangePasswordScreen.id);
+                            Navigator.pushNamed(
+                                context, ChangePasswordScreen.id);
                           }),
                     ],
                   ),

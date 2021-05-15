@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/components/custom_header.dart';
@@ -10,8 +11,6 @@ class ResetPasswordScreen extends StatelessWidget {
   static String id = 'ResetPasswordScreen';
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -19,22 +18,22 @@ class ResetPasswordScreen extends StatelessWidget {
             children: [
               CustomHeader(
                 title: 'Reset your password',
-                height: scrHeight,
+                height: 100.0.h,
               ),
               CustomBody(
-                height: scrHeight * 0.75,
+                height: 75.0.h,
                 widget: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset(
                         "assets/images/ic_intro_image.png",
-                        height: scrHeight * 0.4,
+                        height: 40.0.h,
                       ),
                       Text(
                         'Reset Password',
                         style: TextStyle(
-                            fontSize: scrWidth * 0.04,
+                            fontSize: 16.0.sp,
                             fontWeight: FontWeight.bold,
                             color: Color(0xff181461)),
                       ),

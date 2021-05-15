@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/components/custom_text_field.dart';
 import 'package:user_profile_app_ui/components/select_drop_list.dart';
 import 'package:user_profile_app_ui/models/drop_list_model.dart';
-import 'package:user_profile_app_ui/screens/login_screen.dart';
 import 'package:user_profile_app_ui/screens/start_screen.dart';
 import 'package:user_profile_app_ui/utils/constants.dart';
 
@@ -23,8 +23,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       key: _scaffoldKey,
       body: SafeArea(
@@ -36,13 +34,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        left: scrWidth * 0.40,
-                        bottom: scrHeight * 0.02,
-                        top: scrHeight * 0.02),
+                        left: 40.0.w, bottom: 2.0.h, top: 2.0.h),
                     child: Text(
                       'My Profile',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 15.0.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -50,29 +46,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   IconButton(
                     icon: Icon(Icons.logout),
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, LoginScreen.id, (route) => false);
+                      Navigator.pushNamedAndRemoveUntil(context, StartScreen.id,
+                          (Route<dynamic> route) => false);
                     },
                   )
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(left: scrWidth * 0.33),
-                width: scrWidth,
+                margin: EdgeInsets.only(left: 33.0.w),
+                width: 100.0.w,
                 child: Stack(
                   children: [
                     Container(
-                      width: scrWidth * 0.30,
-                      height: scrHeight * 0.18,
+                      width: 30.0.w,
+                      height: 20.0.h,
                       child: _image != null
                           ? FittedBox(
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                               child: CircleAvatar(
                                   backgroundColor: Colors.white,
                                   backgroundImage: FileImage(_image)),
                             )
                           : FittedBox(
-                              fit: BoxFit.fitWidth,
+                              fit: BoxFit.cover,
                               child: CircleAvatar(
                                 backgroundColor: Colors.white,
                                 backgroundImage:
@@ -81,9 +77,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                     ),
                     Positioned(
-                      left: scrWidth * 0.25,
-                      bottom: scrHeight * 0.065,
-                      width: scrWidth * 0.12,
+                      left: 25.0.w,
+                      bottom: 7.0.h,
+                      width: 10.0.w,
                       child: InkWell(
                         onTap: () {
                           _scaffoldKey.currentState.showBottomSheet(
@@ -98,43 +94,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Text(
                 'John Doe',
-                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(fontSize: 25.0.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: scrHeight * 0.04,
+                height: 4.0.h,
               ),
               Padding(
-                padding: EdgeInsets.all(scrWidth * 0.04),
+                padding: EdgeInsets.all(4.0.w),
                 child: Column(
                   children: [
                     profileItem(
                         itemKey: 'Full Name',
                         itemValue: 'John Doe',
-                        screenHeight: scrHeight,
                         bottomSheetFun: fullNameBottomSheet),
                     SizedBox(
-                      height: scrHeight * 0.04,
+                      height: 4.0.h,
                     ),
                     profileItem(
                         itemKey: 'Email',
                         itemValue: 'johndoe@gmail.com',
-                        screenHeight: scrHeight,
                         bottomSheetFun: emailBottomSheet),
                     SizedBox(
-                      height: scrHeight * 0.04,
+                      height: 4.0.h,
                     ),
                     profileItem(
                         itemKey: 'Location',
                         itemValue: '6th October City, Egypt',
-                        screenHeight: scrHeight,
                         bottomSheetFun: addressBottomSheet),
                     SizedBox(
-                      height: scrHeight * 0.04,
+                      height: 4.0.h,
                     ),
                     profileItem(
                         itemKey: 'Gender',
                         itemValue: 'Male',
-                        screenHeight: scrHeight,
                         bottomSheetFun: genderBottomSheet),
                     CustomButton(
                         color: kButtonPrimaryColor,
@@ -180,8 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  Widget profileItem(
-      {itemKey, itemValue, screenHeight, Function bottomSheetFun}) {
+  Widget profileItem({itemKey, itemValue, Function bottomSheetFun}) {
     return Column(
       children: [
         Row(
@@ -192,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               style: TextStyle(color: Colors.grey),
             ),
             SizedBox(
-              height: screenHeight * 0.015,
+              height: 0.015.h,
             ),
             InkWell(
               onTap: () {
@@ -208,13 +200,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
         SizedBox(
-          height: screenHeight * 0.02,
+          height: 2.0.h,
         ),
         Container(
           alignment: Alignment.centerLeft,
           child: Text(
             itemValue,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 14.0.sp),
           ),
         ),
       ],
@@ -248,15 +240,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget fullNameBottomSheet(BuildContext context) {
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      width: 100.0.w,
+      height: 45.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(10.0.w),
         child: Column(
           children: [
             Text(
               'Edit Full Name',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             CustomTextField(hint: 'Please enter your full name'),
             CustomButton(
@@ -275,15 +267,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget emailBottomSheet(BuildContext context) {
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      width: 100.0.w,
+      height: 45.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(10.0.w),
         child: Column(
           children: [
             Text(
               'Edit Email',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             CustomTextField(hint: 'Please enter your email'),
             CustomButton(
@@ -302,18 +294,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget genderBottomSheet(BuildContext context) {
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      width: 100.0.w,
+      height: 40.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(10.0.w),
         child: Column(
           children: [
             Text(
               'Edit Gender',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 65),
+              padding: EdgeInsets.symmetric(horizontal: 12.0.w),
               child: Row(
                 children: [
                   Expanded(
@@ -364,19 +356,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.9,
+      width: 100.0.w,
+      height: 90.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(8.0.w),
         child: ListView(
           children: [
             Text(
               'Edit Address',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(6.0.w),
               child: SelectDropList(
                 optionItemSelected,
                 dropListModel,
@@ -387,7 +379,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(6.0.w),
               child: SelectDropList(
                 optionItemSelected2,
                 dropListModel2,
@@ -423,15 +415,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget passwordBottomSheet(BuildContext context) {
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.6,
+      width: 100.0.w,
+      height: 70.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(10.0.w),
         child: Column(
           children: [
             Text(
               'Edit Password',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             CustomTextField(hint: 'Please enter your current password'),
             CustomTextField(hint: 'Please enter your new password'),
@@ -452,21 +444,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget accountBottomSheet(BuildContext context) {
     return Container(
       decoration: boxDecoration(kSecondaryColor),
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      width: 100.0.w,
+      height: 45.0.h,
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: EdgeInsets.all(10.0.w),
         child: Column(
           children: [
             Text(
               'Remove Account',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold),
             ),
             CustomTextField(hint: 'Please enter your password'),
             CustomButton(
                 color: Colors.red,
                 textColor: Colors.white,
-                title: 'Edit',
+                title: 'Remove account',
                 onPressed: () {
                   Navigator.pushNamedAndRemoveUntil(
                       context, StartScreen.id, (Route<dynamic> route) => false);

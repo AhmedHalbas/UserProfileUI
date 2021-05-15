@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/components/custom_body.dart';
 import 'package:user_profile_app_ui/components/custom_button.dart';
 import 'package:user_profile_app_ui/components/custom_header.dart';
@@ -12,8 +13,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double scrWidth = MediaQuery.of(context).size.width;
-    double scrHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -22,10 +21,10 @@ class LoginScreen extends StatelessWidget {
             children: [
               CustomHeader(
                 title: 'Login to your account',
-                height: scrHeight,
+                height: 100.0.h,
               ),
               CustomBody(
-                height: scrHeight * 0.75,
+                height: 75.0.h,
                 widget: Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -34,8 +33,8 @@ class LoginScreen extends StatelessWidget {
                       CustomTextField(
                           hint: 'Please enter your Password', isObscured: true),
                       Container(
-                        margin: EdgeInsets.only(right: 20, top: 10),
-                        width: scrWidth,
+                        margin: EdgeInsets.only(right: 5.0.w, top: 2.0.h),
+                        width: 100.0.w,
                         child: InkWell(
                           onTap: () {
                             Navigator.pushNamed(

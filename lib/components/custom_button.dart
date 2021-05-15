@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomButton extends StatelessWidget {
   final Color color;
@@ -15,19 +16,24 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 40),
+      padding: EdgeInsets.only(top: 4.0.h),
       child: Material(
         color: color,
         borderRadius: BorderRadius.circular(10.0),
         child: MaterialButton(
+          padding: EdgeInsets.all(1.0.w),
           onPressed: onPressed,
-          minWidth: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.06,
+          minWidth: 80.0.w,
+          height: 6.0.h,
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
               title,
-              style: TextStyle(color: textColor, fontSize: 25),
+              style: TextStyle(
+                  color: textColor,
+                  fontSize: SizerUtil.deviceType == DeviceType.Tablet
+                      ? 16.0.sp
+                      : 20.0.sp),
             ),
           ),
         ),

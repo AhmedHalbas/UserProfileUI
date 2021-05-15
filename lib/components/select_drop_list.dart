@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import 'package:user_profile_app_ui/models/drop_list_model.dart';
 
 class SelectDropList extends StatefulWidget {
@@ -57,7 +58,7 @@ class _SelectDropListState extends State<SelectDropList>
       child: Column(
         children: <Widget>[
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 17),
+            padding: EdgeInsets.symmetric(horizontal: 4.0.w, vertical: 2.0.h),
             decoration: new BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
               color: Colors.white,
@@ -75,7 +76,7 @@ class _SelectDropListState extends State<SelectDropList>
                   color: Color(0xFF307DF1),
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 3.0.w,
                 ),
                 Expanded(
                     child: GestureDetector(
@@ -86,7 +87,8 @@ class _SelectDropListState extends State<SelectDropList>
                   },
                   child: Text(
                     optionItemSelected.title,
-                    style: TextStyle(color: Color(0xFF307DF1), fontSize: 16),
+                    style:
+                        TextStyle(color: Color(0xFF307DF1), fontSize: 12.0.sp),
                   ),
                 )),
                 Align(
@@ -94,7 +96,7 @@ class _SelectDropListState extends State<SelectDropList>
                   child: Icon(
                     isShow ? Icons.arrow_drop_down : Icons.arrow_right,
                     color: Color(0xFF307DF1),
-                    size: 15,
+                    size: 6.0.w,
                   ),
                 ),
               ],
@@ -104,8 +106,8 @@ class _SelectDropListState extends State<SelectDropList>
               axisAlignment: 1.0,
               sizeFactor: animation,
               child: Container(
-                  margin: const EdgeInsets.only(bottom: 10),
-                  padding: const EdgeInsets.only(bottom: 10),
+                  margin: EdgeInsets.only(bottom: 1.0.h),
+                  padding: EdgeInsets.only(bottom: 1.0.h),
                   decoration: new BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
@@ -141,7 +143,7 @@ class _SelectDropListState extends State<SelectDropList>
             Expanded(
               flex: 1,
               child: Container(
-                padding: const EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: 2.0.h),
                 decoration: BoxDecoration(
                   border: Border(
                       top: BorderSide(color: Colors.grey[200], width: 1)),
@@ -150,7 +152,7 @@ class _SelectDropListState extends State<SelectDropList>
                     style: TextStyle(
                         color: Color(0xFF307DF1),
                         fontWeight: FontWeight.w400,
-                        fontSize: 14),
+                        fontSize: 11.0.sp),
                     maxLines: 3,
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.ellipsis),
