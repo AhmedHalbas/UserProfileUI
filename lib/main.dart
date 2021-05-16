@@ -11,7 +11,7 @@ import 'package:user_profile_app_ui/screens/verification_screen.dart';
 
 void main() => runApp(
       DevicePreview(
-        enabled: true,
+        enabled: false,
         builder: (context) => MyApp(),
       ),
     );

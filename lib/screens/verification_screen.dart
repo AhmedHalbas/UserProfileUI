@@ -22,57 +22,55 @@ class VerificationScreen extends StatelessWidget {
               ),
               CustomBody(
                 height: 75.0.h,
-                widget: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/ic_intro_image.png",
-                        height: 40.0.h,
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/images/ic_intro_image.png",
+                      height: 40.0.h,
+                    ),
+                    Text(
+                      'Verification',
+                      style: TextStyle(
+                          fontSize: 16.0.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff181461)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 12.0.w, vertical: 1.0.h),
+                      child: PinFieldAutoFill(codeLength: 4),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 3.0.w, right: 3.0.w, top: 2.0.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Resend code',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: kButtonPrimaryColor),
+                          ),
+                          Text(
+                            'Change email',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: kButtonPrimaryColor),
+                          ),
+                        ],
                       ),
-                      Text(
-                        'Verification',
-                        style: TextStyle(
-                            fontSize: 16.0.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff181461)),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.0.w, vertical: 1.0.h),
-                        child: PinFieldAutoFill(codeLength: 4),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: 3.0.w, right: 3.0.w, top: 2.0.h),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Resend code',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: kButtonPrimaryColor),
-                            ),
-                            Text(
-                              'Change email',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: kButtonPrimaryColor),
-                            ),
-                          ],
-                        ),
-                      ),
-                      CustomButton(
-                          color: kButtonPrimaryColor,
-                          textColor: Colors.white,
-                          title: 'Continue',
-                          onPressed: () {
-                            Navigator.pushNamed(
-                                context, ChangePasswordScreen.id);
-                          }),
-                    ],
-                  ),
+                    ),
+                    CustomButton(
+                        color: kButtonPrimaryColor,
+                        textColor: Colors.white,
+                        title: 'Continue',
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, ChangePasswordScreen.id);
+                        }),
+                  ],
                 ),
               )
             ],

@@ -22,53 +22,51 @@ class RegisterScreen extends StatelessWidget {
               ),
               CustomBody(
                 height: 75.0.h,
-                widget: Expanded(
-                  child: ListView(
-                    children: [
-                      CustomTextField(
-                        hint: 'Please enter your Full Name',
-                      ),
-                      CustomTextField(hint: 'Please enter your Email'),
-                      CustomTextField(
-                          hint: 'Please enter your Password', isObscured: true),
-                      CustomTextField(
-                          hint: 'Please re-enter your Password',
-                          isObscured: true),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15.0.w),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: CustomButton(
-                                color: kPrimaryColor,
-                                textColor: Colors.white,
-                                title: 'Male',
-                              ),
-                              flex: 1,
+                widget: ListView(
+                  children: [
+                    CustomTextField(
+                      hint: 'Please enter your Full Name',
+                    ),
+                    CustomTextField(hint: 'Please enter your Email'),
+                    CustomTextField(
+                        hint: 'Please enter your Password', isObscured: true),
+                    CustomTextField(
+                        hint: 'Please re-enter your Password',
+                        isObscured: true),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.0.w),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: CustomButton(
+                              color: kPrimaryColor,
+                              textColor: Colors.white,
+                              title: 'Male',
                             ),
-                            SizedBox(
-                              width: 5.0.w,
+                            flex: 1,
+                          ),
+                          SizedBox(
+                            width: 5.0.w,
+                          ),
+                          Expanded(
+                            child: CustomButton(
+                              color: kButtonPrimaryColor,
+                              textColor: Colors.white,
+                              title: 'Female',
                             ),
-                            Expanded(
-                              child: CustomButton(
-                                color: kButtonPrimaryColor,
-                                textColor: Colors.white,
-                                title: 'Female',
-                              ),
-                              flex: 1,
-                            )
-                          ],
-                        ),
+                            flex: 1,
+                          )
+                        ],
                       ),
-                      CustomButton(
-                          color: kButtonPrimaryColor,
-                          textColor: Colors.white,
-                          title: 'Register',
-                          onPressed: () {
-                            Navigator.pushNamed(context, ProfileScreen.id);
-                          })
-                    ],
-                  ),
+                    ),
+                    CustomButton(
+                        color: kButtonPrimaryColor,
+                        textColor: Colors.white,
+                        title: 'Register',
+                        onPressed: () {
+                          Navigator.pushNamed(context, ProfileScreen.id);
+                        })
+                  ],
                 ),
               )
             ],

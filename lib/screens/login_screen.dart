@@ -25,39 +25,37 @@ class LoginScreen extends StatelessWidget {
               ),
               CustomBody(
                 height: 75.0.h,
-                widget: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CustomTextField(hint: 'Please enter your Email'),
-                      CustomTextField(
-                          hint: 'Please enter your Password', isObscured: true),
-                      Container(
-                        margin: EdgeInsets.only(right: 5.0.w, top: 2.0.h),
-                        width: 100.0.w,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(
-                                context, ResetPasswordScreen.id);
-                          },
-                          child: Text(
-                            'forget Password?',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                color: kButtonPrimaryColor,
-                                fontWeight: FontWeight.bold),
-                          ),
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomTextField(hint: 'Please enter your Email'),
+                    CustomTextField(
+                        hint: 'Please enter your Password', isObscured: true),
+                    Container(
+                      margin: EdgeInsets.only(right: 5.0.w, top: 2.0.h),
+                      width: 100.0.w,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, ResetPasswordScreen.id);
+                        },
+                        child: Text(
+                          'forget Password?',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              color: kButtonPrimaryColor,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
-                      CustomButton(
-                          color: kButtonPrimaryColor,
-                          textColor: Colors.white,
-                          title: 'Login',
-                          onPressed: () {
-                            Navigator.pushNamed(context, ProfileScreen.id);
-                          })
-                    ],
-                  ),
+                    ),
+                    CustomButton(
+                        color: kButtonPrimaryColor,
+                        textColor: Colors.white,
+                        title: 'Login',
+                        onPressed: () {
+                          Navigator.pushNamed(context, ProfileScreen.id);
+                        })
+                  ],
                 ),
               )
             ],

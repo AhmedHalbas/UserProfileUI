@@ -22,31 +22,29 @@ class ResetPasswordScreen extends StatelessWidget {
               ),
               CustomBody(
                 height: 75.0.h,
-                widget: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/ic_intro_image.png",
-                        height: 40.0.h,
-                      ),
-                      Text(
-                        'Reset Password',
-                        style: TextStyle(
-                            fontSize: 16.0.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xff181461)),
-                      ),
-                      CustomTextField(hint: 'Please enter your Email'),
-                      CustomButton(
-                          color: kButtonPrimaryColor,
-                          textColor: Colors.white,
-                          title: 'Reset password',
-                          onPressed: () {
-                            Navigator.pushNamed(context, VerificationScreen.id);
-                          })
-                    ],
-                  ),
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/images/ic_intro_image.png",
+                      height: 40.0.h,
+                    ),
+                    Text(
+                      'Reset Password',
+                      style: TextStyle(
+                          fontSize: 16.0.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff181461)),
+                    ),
+                    CustomTextField(hint: 'Please enter your Email'),
+                    CustomButton(
+                        color: kButtonPrimaryColor,
+                        textColor: Colors.white,
+                        title: 'Reset password',
+                        onPressed: () {
+                          Navigator.pushNamed(context, VerificationScreen.id);
+                        })
+                  ],
                 ),
               )
             ],

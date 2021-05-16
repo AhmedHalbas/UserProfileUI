@@ -23,24 +23,22 @@ class ChangePasswordScreen extends StatelessWidget {
               ),
               CustomBody(
                 height: 75.0.h,
-                widget: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      CustomTextField(
-                          hint: 'Please enter your Password', isObscured: true),
-                      CustomTextField(
-                          hint: 'Please re-enter your Password',
-                          isObscured: true),
-                      CustomButton(
-                          color: kButtonPrimaryColor,
-                          textColor: Colors.white,
-                          title: 'Change Password',
-                          onPressed: () {
-                            Navigator.pushNamed(context, ProfileScreen.id);
-                          })
-                    ],
-                  ),
+                widget: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomTextField(
+                        hint: 'Please enter your Password', isObscured: true),
+                    CustomTextField(
+                        hint: 'Please re-enter your Password',
+                        isObscured: true),
+                    CustomButton(
+                        color: kButtonPrimaryColor,
+                        textColor: Colors.white,
+                        title: 'Change Password',
+                        onPressed: () {
+                          Navigator.pushNamed(context, ProfileScreen.id);
+                        })
+                  ],
                 ),
               )
             ],
